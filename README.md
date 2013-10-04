@@ -3,8 +3,6 @@ This is a jQuery plugin that sets the background of an element based on the pixe
 
 [View the Project Page](http://jivinivan.github.com/jquery-autobackground/)
 
-[View the Blog Post](http://www.ravelrumba.com/blog/tracking-scroll-depth-jquery-google-analytics/)
-
 ## Usage
 ```javascript
 // Basic

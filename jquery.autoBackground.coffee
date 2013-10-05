@@ -13,29 +13,31 @@ $.fn.extend
     # Merge default settings with options.
     settings = $.extend settings, options
 
-	#draw a canvas
-    this.canvas = $('<canvas/>').css({width:this[0].width + 'px', height: this[0].height + 'px'})[0];
-    
-    #draw image
-    this.canvas.getContext('2d').drawImage(this[0], 0, 0, this[0].width, this[0].height);
+    this.load ->
 
-    switch settings.location
-        when "top-left"
-        	x=0
-        	y=0
-        when "top-right"
-        	x=0
-        	y=this.width
-        when "bottom-left"
-        	x=this.height 
-        	y=0
-        when "bottom-right"
-        	x=this.height
-        	y=this.width
+        canvas = document.createElement("canvas")
+        context = canvas.getContext("2d")
 
-    pixel = this.canvas.getContext('2d').getImageData(x, y, 1, 1).data
+        context.drawImage(this,10,10)
 
-    #set target background
-    $(settings.target).css("background","rgb("+pixel[0]+","+pixel[1]+","+pixel[2]+")");
+        switch settings.location
+            when "top-left"
+            	x=0
+            	y=0
+            when "top-right"
+            	x=0
+            	y=this.width
+            when "bottom-left"
+            	x=this.height 
+            	y=0
+            when "bottom-right"
+            	x=this.height
+            	y=this.width
+
+        pixel = context.getImageData(x, y, 1, 1).data
+        
+        #set target background
+        $(settings.target).css("background","rgb("+pixel[0]+","+pixel[1]+","+pixel[2]+")");
+        true
 
     true

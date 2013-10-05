@@ -6,42 +6,38 @@
 
   $.fn.extend({
     autoBackground: function(options) {
-      var settings;
+      var pixel, settings, x, y;
       settings = {
         location: "top-left",
         target: "body"
       };
-      return settings = $.extend(settings, options);
+      settings = $.extend(settings, options);
+      this.canvas = $('<canvas/>').css({
+        width: this[0].width + 'px',
+        height: this[0].height + 'px'
+      })[0];
+      this.canvas.getContext('2d').drawImage(this[0], 0, 0, this[0].width, this[0].height);
+      switch (settings.location) {
+        case "top-left":
+          x = 0;
+          y = 0;
+          break;
+        case "top-right":
+          x = 0;
+          y = this.width;
+          break;
+        case "bottom-left":
+          x = this.height;
+          y = 0;
+          break;
+        case "bottom-right":
+          x = this.height;
+          y = this.width;
+      }
+      pixel = this.canvas.getContext('2d').getImageData(x, y, 1, 1).data;
+      $(settings.target).css("background", "rgb(" + pixel[0] + "," + pixel[1] + "," + pixel[2] + ")");
+      return true;
     }
   });
-
-  return function() {
-    var pixel, x, y;
-    this.canvas = $('<canvas/>').css({
-      width: this[0].width + 'px',
-      height: this[0].height + 'px'
-    })[0];
-    this.canvas.getContext('2d').drawImage(this[0], 0, 0, this[0].width, this[0].height);
-    switch (settings.location) {
-      case "top-left":
-        x = 0;
-        y = 0;
-        break;
-      case "top-right":
-        x = 0;
-        y = this.width;
-        break;
-      case "bottom-left":
-        x = this.height;
-        y = 0;
-        break;
-      case "bottom-right":
-        x = this.height;
-        y = this.width;
-    }
-    pixel = this.canvas.getContext('2d').getImageData(x, y, 1, 1).data;
-    $(settings.target).css("background", "rgb(" + pixel[0] + "," + pixel[1] + "," + pixel[2] + ")");
-    return true;
-  };
 
 }).call(this);

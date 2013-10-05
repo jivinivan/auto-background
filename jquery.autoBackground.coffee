@@ -10,10 +10,9 @@ $.fn.extend
       location: "top-left"
       target: "body"
 
-# Merge default settings with options.
+    # Merge default settings with options.
     settings = $.extend settings, options
 
-return ()->
 	#draw a canvas
     this.canvas = $('<canvas/>').css({width:this[0].width + 'px', height: this[0].height + 'px'})[0];
     

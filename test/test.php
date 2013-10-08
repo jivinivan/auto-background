@@ -13,7 +13,7 @@
                 //get image
                 var image = document.getElementById("preview");
                 var canvas = convertImageToCanvas(image);
-                var pixel = getPixelData(image);
+                var pixel = getPixelData(canvas);
 
                 $("body").css("background","rgb("+pixel[0]+","+pixel[1]+","+pixel[2]+")")
 

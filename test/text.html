@@ -5,35 +5,33 @@
         
     </head>
     <body>
-        <img id="preview" src="images/test.jpg" />
+        <img id="preview" src="http://nextwavesites.com/theme_asset/30/hero_bg_wave.jpg" />
         <canvas id="myCanvas"/>
         <canvas id="newCanvas"/>
         <script type="text/javascript">
+                var c, ctx, img, pixel;
+                c = document.getElementById("myCanvas");
+                ctx = c.getContext("2d");
+                img = document.getElementById("preview");
+                ctx.drawImage(img, 10, 10);
+                
+                dataURL = c.toDataURL();
+                c2 = document.getElementById("newCanvas");
+                ctx2.drawImage(dataURL, 10, 10);
 
-            $("#preview").load(function(){
-                //get image
-                var image = document.getElementById("preview");
-                var canvas = convertImageToCanvas(image);
+                var imageObj = new Image();
+                imageObj.onload = function() {
+                  context.drawImage(this, 0, 0);
+                };
 
-                console.log(convertCanvasToImage(canvas));
+                imageObj.src = dataURL;
 
-                // Converts image to canvas; returns new canvas element
-                function convertImageToCanvas(image) {
-                    var canvas = document.createElement("canvas");
-                    canvas.width = image.width;
-                    canvas.height = image.height;
-                    canvas.getContext("2d").drawImage(image, 0, 0);
 
-                    return canvas;
-                }
+                //pixel = ctx.getImageData(0,0, 1, 1).data;
 
-                // Converts canvas to an image
-                function convertCanvasToImage(canvas) {
-                    var image = new Image();
-                    image.src = canvas.toDataURL("image/png");
-                    return image;
-                }
-            });
+
+
+                console.log(dataURL);
         </script>
     </body>
 </html>

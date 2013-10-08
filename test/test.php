@@ -16,7 +16,7 @@
                 var image = document.getElementById("preview");
                 var canvas = convertImageToCanvas(image);
 
-                console.log(convertCanvasToImage(canvas));
+                console.log(getPixelData(canvas));
 
                 // Converts image to canvas; returns new canvas element
                 function convertImageToCanvas(image) {
@@ -34,6 +34,10 @@
                     image.src = canvas.toDataURL("image/png");
                     return image;
                 }
+
+                function getPixelData(canvas){
+                	return canvas.getImageData(0,0, 1, 1).data;
+                }	
             });
         </script>
     </body>

@@ -1,7 +1,5 @@
 # jQuery Auto Background
 
-Note: This plugin is in complete
-
 This is a jQuery plugin that sets the background of an element based on the pixel color on the edges of an image. This can be especially useful for setting the background of a full width rotating slideshow based on the containing image. 
 
 [View the Project Page](https://github.com/jivinivan/auto-background)
@@ -19,6 +17,7 @@ $("#image").autoBackground({
 ```
 ## Requirements
 * jQuery 1.7+
+* CORS must be enabled to access image data.
 
 ## Browser Support
 Any browser supporting html5 canvas. 
@@ -28,7 +27,8 @@ If you have any questions please find me on Twitter at [@jivinivan](https://twit
 
 ## Changelog
 
-0.1 (10/3/13): Initial release.
+0.1.1 (10/7/13): Add example with CORS support.
+0.1.0 (10/3/13): Initial release.
 
 ## License
 Licensed under the MIT and GPL licenses.

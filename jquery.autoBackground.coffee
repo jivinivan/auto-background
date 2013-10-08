@@ -18,6 +18,7 @@ $.fn.extend
         canvas = document.createElement("canvas")
         context = canvas.getContext("2d")
 
+        img = document.getElementById("preview")
         context.drawImage(this,10,10)
 
         switch settings.location

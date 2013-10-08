@@ -13,9 +13,10 @@
       };
       settings = $.extend(settings, options);
       this.load(function() {
-        var canvas, context, pixel, x, y;
+        var canvas, context, img, pixel, x, y;
         canvas = document.createElement("canvas");
         context = canvas.getContext("2d");
+        img = document.getElementById("preview");
         context.drawImage(this, 10, 10);
         switch (settings.location) {
           case "top-left":

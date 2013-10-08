@@ -8,7 +8,7 @@ $.fn.extend
     # Default settings
     settings =
       location: "top-left"
-      target: "body"s
+      target: "body"
 
     # Merge default settings with options.
     settings = $.extend settings, options
@@ -17,9 +17,7 @@ $.fn.extend
 
         canvas = document.createElement("canvas")
         context = canvas.getContext("2d")
-
-        img = document.getElementById("preview")
-        context.drawImage(this,10,10)
+        context.drawImage(this,0,0)
 
         switch settings.location
             when "top-left"

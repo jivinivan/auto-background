@@ -7,16 +7,14 @@
     </head>
     <body>
         <img id="preview" src="images/test.jpg" />
-        <canvas id="myCanvas"/>
-        <canvas id="newCanvas"/>
         <script type="text/javascript">
 
             $("#preview").load(function(){
                 //get image
                 var image = document.getElementById("preview");
-                var canvas = convertImageToCanvas(image);
+                var pixel = getPixelData(image);
 
-                console.log(getPixelData(canvas));
+                $("body").css("background","rgb("+pixel[0]+","+pixel[1]+","+pixel[2]+")")
 
                 // Converts image to canvas; returns new canvas element
                 function convertImageToCanvas(image) {

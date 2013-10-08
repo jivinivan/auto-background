@@ -8,7 +8,7 @@ $.fn.extend
     # Default settings
     settings =
       location: "top-left"
-      target: "body"
+      target: "body"s
 
     # Merge default settings with options.
     settings = $.extend settings, options

@@ -36,7 +36,8 @@
                 }
 
                 function getPixelData(canvas){
-                	return canvas.getImageData(0,0, 1, 1).data;
+                	context = canvas.getContext("2d");
+                	return context.getImageData(0,0, 1, 1).data;
                 }	
             });
         </script>

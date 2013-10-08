@@ -3,7 +3,7 @@
     <head>
         <title>jquery.autoBackground.js</title>
         
-        <script type="text/javascript" src="../jquery.js"></script>
+        <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
         <script type="text/javascript" src="../jquery.autoBackground.js"></script>
     </head>
     <body>
